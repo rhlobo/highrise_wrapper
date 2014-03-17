@@ -1,5 +1,5 @@
 require "lobogem/version"
+require "lobogem/contact"
 
 module Lobogem
-  # Your code goes here...
 end
