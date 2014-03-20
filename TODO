@@ -1,2 +1,18 @@
- ☐ Add gem description to Highrise_wrapper.gemspec
- ☐ 
+MAIN SCOPE:
+ ✔ Test integration (highrise gem usage) @done (14-03-20 16:32)
+ ✔ Make project read to implementation @done (14-03-20 16:36)
+ ☐ ??
+
+DOCUMENTATION:
+ ✔ Add gem description to Highrise_wrapper.gemspec @done (14-03-20 16:31)
+ 
+ QUALITY:
+ ☐ Create tests
+ ☐ Add to Travis CI
+ 
+ README:
+ ☐ Add travis badge
+ ☐ Add gem version badge
+ ☐ Add code quality badge (code climate?)
+ ☐ Add other badges??
+ ☐ Write 'usage'

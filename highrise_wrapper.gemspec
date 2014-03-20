@@ -8,10 +8,15 @@ Gem::Specification.new do |spec|
   spec.version       = Highrise_wrapper::VERSION
   spec.authors       = ["rhlobo"]
   spec.email         = ["rhlobo+github@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = "Gem to provide easy usage of Highrise API"
+  spec.description   = 'Gem to provide easy usage of Highrise API.
+                        Built wrapping the highrise gem, it is a POC
+                        created by me in order to study rubys platform'
+  spec.homepage      = "http://github.com/rhlobo/highrise_wrapper"
   spec.license       = "MIT"
+
+  spec.platform              = Gem::Platform::RUBY
+  spec.required_ruby_version = ">= 1.9.3"
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
@@ -21,5 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
-  spec.add_dependency "highrise"
+
+  spec.add_dependency "highrise", "~>3.1.5"
 end
