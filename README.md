@@ -1,6 +1,7 @@
 # Highrise_wrapper
 
-TODO: Write a gem description
+Gem built to wrap the highrise gem. 
+This is a POC created to be used in my personal studies.
 
 ## Installation
 

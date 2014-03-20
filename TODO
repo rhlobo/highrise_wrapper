@@ -2,6 +2,11 @@ MAIN SCOPE:
  ✔ Test integration (highrise gem usage) @done (14-03-20 16:32)
  ✔ Make project read to implementation @done (14-03-20 16:36)
  ☐ ??
+ ☐ Criar metodo de conexão com highrise
+ ☐ Cadastramento de um contato
+ ☐ Descadastramento de um contato
+ ☐ Fazer com que chamada a api seja assincrona (outra thread, ou etc)
+ ☐ Remover script de testes
 
 DOCUMENTATION:
  ✔ Add gem description to Highrise_wrapper.gemspec @done (14-03-20 16:31)
