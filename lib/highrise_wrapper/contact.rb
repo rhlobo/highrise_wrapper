@@ -1,4 +1,4 @@
-module Lobogem
+module Highrise_wrapper
 
 	class Contact
 		attr_accessor :name, :last_name, :email, :company, :job_title, :phone, :website

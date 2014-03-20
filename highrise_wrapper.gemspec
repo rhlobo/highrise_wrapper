@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'lobogem/version'
+require 'highrise_wrapper/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "lobogem"
-  spec.version       = Lobogem::VERSION
+  spec.name          = "highrise_wrapper"
+  spec.version       = Highrise_wrapper::VERSION
   spec.authors       = ["rhlobo"]
   spec.email         = ["rhlobo+github@gmail.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}
