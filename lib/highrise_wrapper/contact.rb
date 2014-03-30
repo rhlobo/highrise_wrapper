@@ -1,5 +1,11 @@
 module Highrise_wrapper
 
+	module InstanceMethods
+	  def save_to_highrise
+	  	self.company.highrise_base_url
+	  end
+	end
+
 	class Contact
 		attr_accessor :name, :last_name, :email, :company, :job_title, :phone, :website
 

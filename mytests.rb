@@ -23,5 +23,52 @@ class Contact
 	end
 end
 
-c = Contact.new "site", "user", {name: "fernando"}
-puts c.name
+#c = Contact.new "site", "user", {name: "fernando"}
+#puts c.name
+puts @people.to_json
+
+=begin
+{
+	"author_id":1018065,
+	"background":null,
+	"company_id":202863650,
+	"created_at":"2014-03-17T22:11:22Z",
+	"first_name":"Roberto",
+	"group_id":null,
+	"id":201374388,
+	"last_name":"Lobo",
+	"owner_id":null,
+	"title":"Project Manager",
+	"updated_at":"2014-03-29T20:40:56Z",
+	"visible_to":"Everyone",
+	"company_name":"Empresa",
+	"linkedin_url":null,
+	"avatar_url":"http://dge9rmgqjs8m1.cloudfront.net/highrise/missing/avatar.gif?r=3",
+	"contact_data": {
+		"instant_messengers":[],
+		"twitter_accounts":[],
+		"email_addresses":[{
+			"address":"rhlobo+highrise@gmail.com",
+			"id":103683105,
+			"location":"Home"
+		}],
+		"phone_numbers":[{
+			"id":164635766,
+			"location":"Work",
+			"number":"84442234"
+		}],
+		"addresses":[],
+		"web_addresses":[{
+			"id":164635767,
+			"location":"Work",
+			"url":"http://how.i.drycode.it"
+		}]
+	},
+	"subject_datas":[{
+		"id":118062439,
+		"subject_field_id":878834,
+		"subject_field_label":"Customer ID",
+		"value":"ID"
+	}]
+}
+=end
