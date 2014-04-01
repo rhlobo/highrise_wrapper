@@ -6,7 +6,7 @@ require 'highrise_wrapper/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "highrise_wrapper"
-  spec.version       = Highrise_wrapper::VERSION
+  spec.version       = HighriseWrapper::VERSION
   spec.authors       = ["rhlobo"]
   spec.email         = ["rhlobo+github@gmail.com"]
   spec.summary       = "Gem to provide easy usage of Highrise API"
@@ -28,5 +28,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
 
-  spec.add_dependency "highrise", "~>3.1.5"
+  spec.add_dependency "highrise", "~>3.1"
 end
