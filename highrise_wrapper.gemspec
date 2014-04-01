@@ -28,5 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
 
-  spec.add_dependency "highrise", "~>3.1"
+  spec.add_dependency "highrise", "~> 3.1"
+  spec.add_dependency "simple_attribute_mapper", "~> 0.0.3"
+  spec.add_dependency "virtus", "~> 1.0.2"
 end
