@@ -134,22 +134,36 @@ SimpleAttributeMapper.from(c).to(PersonMapper2).with({
   :job_title => :title,
 })
 
+
 ###################### mapping v6
 
-hmapper3 = SimpleAttributeMapper::Mapper.new({
-  :name => :first_name,
-  :last_name => :last_name,
-  :job_title => :title,
-  :company_name => :company_name,
-  :email => :email,
-  :phone => :contact_data {:phone_numbers [:number]}
-})
+def highrise_hash(contact)
+  {
+    'first_name' => contact.name,
+    'last_name' => contact.last_name,
+    'title' => contact.job_title,
+    'company_name' => contact.company_name,
+    'contact_data' =>  {
+      'email_addresses' => [{
+        'address' => contact.email,
+        'location' => 'Work'
+      }],
+      'phone_numbers' => [{
+        'number' => contact.phone,
+        'location' => 'Work'
+      }],
+      'web_addresses' => [{
+        'location' => 'Work',
+        'url' => contact.website
+      }]
+    }
+  }
+end
 
-hp3 = hmapper3.map(c, Highrise::Person)
-puts 'the highrise person (mapped directly - declaring everything)'
+hp3 = Highrise::Person.new(highrise_hash(c))
+puts 'the highrise person (mapped with hash)'
 puts hp3.as_json
 puts
-
 
 
 #puts @people.to_json

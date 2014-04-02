@@ -1,41 +1,48 @@
 module HighriseWrapper
   module ActiveRecord
+    def on_highrise?
+      !self.highrise_id.nil?
+    end
+
     def highrise_save
-      puts 'Saving #{fullname} to highrise'
-
-      # Map fields
-
-      Highrise::Base.site = self.highrise_base_url
-      Highrise::Base.user = self.highrise_token
-      Highrise::Base.format = :xml  
-
-      person = Highrise::Person.new do |p|
-
-      end
+      logger.info 'Saving #{fullname} to highrise'
 
       begin
+        setup_highrise
+        person = Highrise::Person.new(self.highrise_hash)
         person.save!
-      rescue Exception => e
-        #shoud get rails logger if available
-        puts person.errors
+        self.highrise_id = person.attributes['id']
+        self.save!
+      rescue Exception => exception
+        logger.error(
+          "It was not possible to save contact to highrise: " +
+          "#{exception.class} (#{exception.message})")
+        return false
       end
-      self.highrise_id = person.attributes['id']
-
-      puts company.highrise_base_url
-      puts company
-      puts 'funfa??'
     end
 
     def highrise_remove
-      puts 'Removing #{fullname} from highrise'
+      logger.info 'Removing #{fullname} from highrise'
 
-      Highrise::Base.site = self.highrise_base_url
-      Highrise::Base.user = self.highrise_token
-      Highrise::Base.format = :xml  
+      begin
+        setup_highrise
+        person = Highrise::Person.find(highrise_id)
+        person.destroy
+        self.highrise_id = nil
+        self.save!
+      rescue Exception => exception
+        logger.error(
+          "It was not possible to remove contact from highrise: " +
+          "#{exception.class} (#{exception.message})")
+        return false
+      end
+    end
 
-      person = Highrise::Person.find(highrise_id)
-      person.destroy
-      self.highrise_id = nil
+    private
+    def setup_highrise
+        Highrise::Base.site = self.highrise_base_url
+        Highrise::Base.user = self.highrise_token
+        Highrise::Base.format = :xml
     end
   end
 end

@@ -1,3 +1,4 @@
+require 'highrise'
 require "highrise_wrapper/version"
 require "highrise_wrapper/contact"
 
