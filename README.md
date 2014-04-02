@@ -19,7 +19,63 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You can start to use with just a few steps. All you need is to
+have a class including our `Contact` module that:
+
+- implements a `highrise_hash` method that returns a hash with the contact information using the format the highrise_api ( https://github.com/basecamp/highrise-api ) uses
+- has `highrise_token` and `highrise_base_url` available
+
+### Example code
+
+```ruby
+class Contact < ActiveRecord::Base
+  include HighriseWrapper::ActiveRecord
+
+  belongs_to :company
+
+  def fullname
+    "#{first_name} #{last_name}"
+  end
+
+  def highrise_hash
+  {
+    'first_name' => first_name,
+    'last_name' => last_name,
+    'title' => job_title,
+    'company_name' => company_name,
+    'contact_data' =>  {
+      'email_addresses' => [{
+        'address' => email,
+        'location' => 'Work'
+      }],
+      'phone_numbers' => [{
+        'number' => phone,
+        'location' => 'Work'
+      }],
+      'web_addresses' => [{
+        'location' => 'Work',
+        'url' => website
+      }]
+    }
+  }
+  end
+
+  def highrise_token
+    company.highrise_token
+  end
+
+  def highrise_base_url
+    company.highrise_base_url
+  end
+end
+```
+
+### Sample app
+
+There is an example application you can take a look at:
+
+- Source: http://github.com/rhlobo/loboapp
+- Demo: 
 
 ## Contributing
 
