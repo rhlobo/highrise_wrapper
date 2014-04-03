@@ -75,7 +75,7 @@ end
 There is an example application you can take a look at:
 
 - Source: http://github.com/rhlobo/loboapp
-- Demo: 
+- Demo: http://loboapp.herokuapp.com
 
 ## Contributing
 
